@@ -1,15 +1,25 @@
 name: main
 on: [push]
 jobs:
-  print-text:
-      runs-on: ubuntu-latest
-      steps:
-        -name: Checkout Code
-        uses: actions/checkout@v4
-        -name: setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
+  job1:
+    runs-on: ubuntu-latest
 
-        -name: Run test1
-        run: node dist/test1.js
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '24'
+
+    - name: Run Test1
+      run: node dist/Test1.js
+      # run: |
+      #   output=$(node dist/Test1.js)
+      #   exit_code=$output
+
+      #   if[ $exit_code -ne 0 ]; then
+      #     echo "error: exit code $exit_code"
+      #     exit 1
+      #   fi

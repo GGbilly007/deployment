@@ -6,5 +6,10 @@ jobs:
       steps:
         -name: Checkout Code
         uses: actions/checkout@v4
-        -name: Print text from index
-        run: cat dist/index.js  
+        -name: setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+        -name: Run test1
+        run: node dist/test1.js
